@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700&display=swap");
+html {
+  font-size: 62.5%;
+  background-color: #0c0c0c;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 1.2rem;
+  background-color: #0c0c0c;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100rem;
+  border: 0.1rem solid #4b4a48;
+  width: 1rem;
+  background: #0c0c0c;
+}
+
+#root {
+  color: #f8f4f4;
+  font-family: "Lexend", sans-serif;
+  font-size: 1.6rem;
+}
+
+/*# sourceMappingURL=index.css.map */

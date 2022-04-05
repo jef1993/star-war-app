@@ -1,0 +1,25 @@
+html {
+  font-size: 62.5%;
+  background-color: $color-black;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 1.2rem;
+  background-color: $color-black;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100rem;
+  border: 0.1rem solid $color-grey;
+  width: 1rem;
+  background: $color-black;
+}
+
+#root {
+  color: $color-white;
+  font-family: "Lexend", sans-serif;
+  font-size: 1.6rem;
+}
