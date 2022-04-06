@@ -1,4 +1,4 @@
-function SearchResults() {
+function Results() {
   return (
     <div className="results">
       <ul className="results__list"></ul>
@@ -6,4 +6,4 @@ function SearchResults() {
   );
 }
 
-export default SearchResults;
+export default Results;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import { ReactComponent as StarWarsLogo } from "./star-wars-logo.svg";
 
 function SearchBar(props) {
   const [query, setQuery] = useState({
@@ -26,8 +27,14 @@ function SearchBar(props) {
   return (
     <div className="search-bar">
       <form className="search-bar__form" onSubmit={submitHandler}>
-        <select onChange={typeHandler} value={query.type}>
-          <option value="people">people</option>
+        <select
+          className="search-bar__selector"
+          onChange={typeHandler}
+          value={query.type}
+        >
+          <option className="search-bar__option" value="people">
+            people
+          </option>
         </select>
         <input
           className="search-bar__input"

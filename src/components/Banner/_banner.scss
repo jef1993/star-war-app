@@ -1,0 +1,18 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 1rem;
+  text-align: justify;
+
+  &__logo {
+    width: 40rem;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+}

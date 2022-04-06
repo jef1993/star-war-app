@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
 
+import Banner from "./components/Banner/Banner";
 import SearchBar from "./components/SearchBar/SearchBar";
+import Results from "./components/Results/Results";
 import getData from "./utils";
 
 function App() {
@@ -48,6 +50,7 @@ function App() {
 
   return (
     <div className="App">
+      <Banner />
       <SearchBar onQuerySubmit={searchResultHandler} />
       {results.results ? (
         results.results.map((obj, i) => <div key={i}>{obj.name}</div>)
