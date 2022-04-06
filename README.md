@@ -8,7 +8,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### About the App
+## About the App
 
 select the type of data and search it by name (e.g. type: people, input: luke)
 
@@ -23,7 +23,7 @@ if the type of data is people, the app will display rlated character's:
 
 If the type of data is films, only the name of the movies will display as a placeholder for future development
 
-### My Apporach on building the app
+# My Apporach on building the app
 
 ## File Cleanup and setup
 
@@ -83,7 +83,7 @@ If there is good coding habit that I don't know, I am always willing to listen a
 
 Implementing dynamic colors for the avatar is certainly the most challenging part of the test.
 
-# Problem 1: about half of the colors we get from the api are not a valid css color value
+## Problem 1: about half of the colors we get from the api are not a valid css color value
 
 Which means I needed to identify each color's atucal value
 
@@ -94,7 +94,7 @@ Which means I needed to identify each color's atucal value
 3. Export the variables to avatar component
 4. Formatting color data values so that the values can be accpeted in JS and Sass as a variable(e.g. 'brown mottle' to 'brownmottle')
 
-# Problem 2: body parts may have multiple or no colors
+## Problem 2: body parts may have multiple or no colors
 
 - Solution:
 
