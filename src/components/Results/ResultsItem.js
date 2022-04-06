@@ -1,3 +1,5 @@
+import Avatar from "../Avatar/Avatar";
+
 function ResultsItem(props) {
   return (
     <li className="results__item">
@@ -9,9 +11,15 @@ function ResultsItem(props) {
         <p className="results__birth-year">Birth Year: {props.birthYear}</p>
       </div>
       <div className="results__avatar">
-        <p className="results__hair-color">{props.hairColor}</p>
+        <Avatar
+          eyeColor={props.eyeColor}
+          hairColor={props.hairColor}
+          skinColor={props.skinColor}
+        />
+
+        {/* <p className="results__hair-color">{props.hairColor}</p>
         <p className="results__eye-color">{props.eyeColor}</p>
-        <p className="results__skin-color">{props.skinColor}</p>
+        <p className="results__skin-color">{props.skinColor}</p> */}
       </div>
     </li>
   );
