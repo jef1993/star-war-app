@@ -1,12 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
+### `npm i` `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -14,57 +8,110 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+### About the App
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+select the type of data and search it by name (e.g. type: people, input: luke)
 
-### `npm run build`
+if the type of data is people, the app will display rlated character's:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Name
+- Height
+- Weight
+- gender
+- Birth year
+- Avatar based on the skin hair and eyes color of the character.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If the type of data is films, only the name of the movies will display as a placeholder for future development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### My Apporach on building the app
 
-### `npm run eject`
+## File Cleanup and setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Since in the projects there are many features we are not implementing (e.g testing):
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Deleted all unused files
+- Update favicon & page title
+- Setup sass file framework
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## API doc reading
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Checkout how will the api response on submtting differnt query
+- Besides requied data about star wars character, also checked if there is extra data for development efficiency and improving UX
 
-## Learn More
+There are two property that is quite helpful:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 'count': the total number of results from all pages
+- 'previous' / 'next': url for next page of current results.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+which helped me to implement search result count, display current page feature and an extra way to get data from API
 
-### Code Splitting
+## API doc testing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- I use Thunder client to send out test requests
+- Checkout if there is 'unusual' data (there is, on skin_color, etc, will explain later)
 
-### Analyzing the Bundle Size
+## API fetch test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- fetch all data vs fetch by request
 
-### Making a Progressive Web App
+I understand in an comerical app, fetching all data from an API is propably not ok. But in our project:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- we only have 82 items on 'people' route.
+- each page contains a maximum of 10 items only.
 
-### Advanced Configuration
+which means we are sending more requests than fetching all at once after 9 fetches
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+In the end, I chose fetch by request as it seems to be more practical.
 
-### Deployment
+However, I kept the fetch all function (src/utils, funciton getAllPeople) for reference and data testing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Coding Steps
 
-### `npm run build` fails to minify
+basically finish compnents one by one, from parent to child
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. HTML markup with dummy data
+2. Basic styling (so that displayed data is visual friendly at least)
+3. implement functionality and display real data
+4. styling touch-ups
+5. bug testing
+6. implement responsive design
+
+I usually commit my codes after styling/implemented a stable features since commiting a code that is borken doesn't seems too helpful. I could be wrong though.
+If there is good coding habit that I don't know, I am always willing to listen and learn.
+
+## Challenges
+
+Implementing dynamic colors for the avatar is certainly the most challenging part of the test.
+
+# Problem 1: about half of the colors we get from the api are not a valid css color value
+
+Which means I needed to identify each color's atucal value
+
+- Solution:
+
+1. Find out all of the unique colors, by fetching all data from 'people' and extract the unique colors by data manipulation(the code I used is disabled in App.js file)
+2. Declare the color values in an separate scss file (colors.scss)
+3. Export the variables to avatar component
+4. Formatting color data values so that the values can be accpeted in JS and Sass as a variable(e.g. 'brown mottle' to 'brownmottle')
+
+# Problem 2: body parts may have multiple or no colors
+
+- Solution:
+
+1. Use background-color to color if there the body part has only one color
+2. Use background-image: linear-gradient to color if there the body part has multiple color.
+3. If hair has no color, the character will be bald. (e.g. C-3PO)
+4. If skin has no color, the character will use hair color as the skin color.(e.g Chewbacca)
+
+Another possible solution is, instead of using linear-gradient for multi-color, we could divide body parts into multiple 'div's.
+
+## Future improvement
+
+- dry up codes as ome of it are repeataive
+- use more advanced react features to make the code easier to manage(use universal state management with useContext?)
+
+## Notice
+
+- The Readme commit is the code finished within the time limit, please consider any further commit as post-submittion updates.
+- Thank you for reading
+- Hire me , plz.
