@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (max-width: 400px) {
+    transform: scale(0.9);
+    transform-origin: bottom;
+  }
   &__head {
     height: 12rem;
     width: 12rem;

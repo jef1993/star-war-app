@@ -13,6 +13,11 @@ html {
   background-color: #0c0c0c;
   font-family: "Lexend", sans-serif;
 }
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 56.25%;
+  }
+}
 
 ::-webkit-scrollbar {
   width: 1.2rem;
@@ -34,8 +39,9 @@ html {
 }
 
 .App {
-  width: 80rem;
+  width: min(100vw, 80rem);
   margin: 2rem auto 2rem auto;
+  padding: 0 1rem;
 }
 
 .hidden {
@@ -52,7 +58,7 @@ html {
   text-align: justify;
 }
 .banner__logo {
-  width: 40rem;
+  width: min(90vw, 40rem);
 }
 .banner__title {
   text-transform: uppercase;
@@ -82,7 +88,7 @@ html {
 }
 .search-bar__input {
   padding-left: 0.6rem;
-  width: 30rem;
+  width: min(60vw, 30rem);
 }
 .search-bar__btn {
   border: none;
@@ -128,6 +134,11 @@ html {
   gap: 2rem 1rem;
   margin-top: 1rem;
 }
+@media screen and (max-width: 800px) {
+  .results__list {
+    grid-template-columns: 1fr;
+  }
+}
 .results__item {
   padding: 1.5rem;
   border: 2px solid #fce51e;
@@ -149,6 +160,11 @@ html {
 .results__info p {
   font-weight: 300;
 }
+@media screen and (max-width: 400px) {
+  .results__info p {
+    font-size: 1.4rem;
+  }
+}
 .results__avatar {
   grid-area: 1/2/-1/-1;
   background-color: #0a0a0a;
@@ -160,11 +176,23 @@ html {
   flex-direction: column-reverse;
   align-items: center;
 }
+@media screen and (max-width: 400px) {
+  .results__avatar {
+    width: 14rem;
+    height: 14rem;
+  }
+}
 
 .avatar {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media screen and (max-width: 400px) {
+  .avatar {
+    transform: scale(0.9);
+    transform-origin: bottom;
+  }
 }
 .avatar__head {
   height: 12rem;

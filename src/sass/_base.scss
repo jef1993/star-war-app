@@ -11,6 +11,10 @@ html {
   font-size: 62.5%;
   background-color: $color-black;
   font-family: "Lexend", sans-serif;
+
+  @media screen and (max-width: 400px) {
+    font-size: 56.25%;
+  }
 }
 
 ::-webkit-scrollbar {

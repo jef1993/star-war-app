@@ -24,7 +24,7 @@
 
   &__input {
     padding-left: 0.6rem;
-    width: 30rem;
+    width: min(60vw, 30rem);
   }
 
   &__btn {

@@ -7,7 +7,7 @@
   text-align: justify;
 
   &__logo {
-    width: 40rem;
+    width: min(90vw, 40rem);
   }
 
   &__title {

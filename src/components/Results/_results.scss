@@ -36,6 +36,10 @@
     grid-template-rows: repeat(2, auto);
     gap: 2rem 1rem;
     margin-top: 1rem;
+
+    @media screen and (max-width: 800px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__item {
@@ -61,6 +65,9 @@
 
     & p {
       font-weight: 300;
+      @media screen and (max-width: 400px) {
+        font-size: 1.4rem;
+      }
     }
   }
 
@@ -75,5 +82,12 @@
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+
+    @media screen and (max-width: 400px) {
+      width: 14rem;
+      height: 14rem;
+
+
+    }
   }
 }

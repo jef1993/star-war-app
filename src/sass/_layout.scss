@@ -1,6 +1,7 @@
 .App {
-  width: 80rem;
+  width: min(100vw, 80rem);
   margin: 2rem auto 2rem auto;
+  padding: 0 1rem;
 }
 
 .hidden {
