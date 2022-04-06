@@ -130,7 +130,7 @@ html {
 }
 .results__item {
   padding: 1.5rem;
-  border: 1.5px solid #ffd728;
+  border: 2px solid #fce51e;
   border-radius: 1.5rem;
   height: auto;
   display: grid;

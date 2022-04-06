@@ -5,8 +5,14 @@ function ResultsItem(props) {
     <li className="results__item">
       <h2 className="results__name">{props.name}</h2>
       <div className="results__info">
-        <p className="results__height">Height: {props.height / 100}m</p>
-        <p className="results__mass">Weight: {props.mass}kg</p>
+        <p className="results__height">
+          Height: {props.height / 100}
+          {props.height !== "unknown" && "m"}
+        </p>
+        <p className="results__mass">
+          Weight: {props.mass}
+          {props.mass !== "unknown" && "kg"}
+        </p>
         <p className="results__gender">Gender: {props.gender}</p>
         <p className="results__birth-year">Birth Year: {props.birthYear}</p>
       </div>
