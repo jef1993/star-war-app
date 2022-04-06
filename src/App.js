@@ -2,31 +2,31 @@ import React, { useState } from "react";
 import "./App.css";
 
 import SearchBar from "./components/SearchBar/SearchBar";
-import getPeople from "./utils";
+import getData from "./utils";
 
 function App() {
   const [results, setResults] = useState([]);
 
-  let method = getPeople;
-  const getMethod = (searchStr) => {
+  let method = getData;
+  const getMethod = (type, searchStr) => {
     if (typeof method === "function") {
-      return getPeople(setResults, searchStr);
+      return getData(setResults, type, searchStr);
     }
     return method;
   };
 
   const searchResultHandler = (data) => {
-    getMethod(data.trim());
+    getMethod(data.type, data.value.trim());
   };
 
-  let colors = results
-    .map((obj) => [
-      obj.eye_color.split(", "),
-      obj.hair_color.split(", "),
-      obj.skin_color.split(", "),
-    ])
-    .flat(2)
-    .map((color) => color.replace(" ", "-"));
+  // let colors = results
+  //   .map((obj) => [
+  //     obj.eye_color.split(", "),
+  //     obj.hair_color.split(", "),
+  //     obj.skin_color.split(", "),
+  //   ])
+  //   .flat(2)
+  //   .map((color) => color.replace(" ", "-"));
 
   // console.log(
   //   results
@@ -38,7 +38,7 @@ function App() {
   //     .flat(1)
   // );
 
-  const uniqueColors = [...new Set(colors)];
+  // const uniqueColors = [...new Set(colors)];
   // console.log(uniqueColors);
 
   // const bigNum =
@@ -49,8 +49,8 @@ function App() {
   return (
     <div className="App">
       <SearchBar onQuerySubmit={searchResultHandler} />
-      {results.length > 0 ? (
-        results.map((obj, i) => <div key={i}>{obj.name}</div>)
+      {results.results ? (
+        results.results.map((obj, i) => <div key={i}>{obj.name}</div>)
       ) : (
         <div>no results</div>
       )}
