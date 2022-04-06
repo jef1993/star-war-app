@@ -9,6 +9,7 @@
 html {
   font-size: 62.5%;
   background-color: $color-black;
+  font-family: "Lexend", sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -25,6 +26,5 @@ html {
 
 #root {
   color: $color-white;
-  font-family: "Lexend", sans-serif;
   font-size: 1.6rem;
 }

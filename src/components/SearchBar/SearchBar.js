@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { ReactComponent as StarWarsLogo } from "./star-wars-logo.svg";
+import { Icon } from "@iconify/react";
 
 function SearchBar(props) {
   const [query, setQuery] = useState({
@@ -32,9 +32,7 @@ function SearchBar(props) {
           onChange={typeHandler}
           value={query.type}
         >
-          <option className="search-bar__option" value="people">
-            people
-          </option>
+          <option value="people">people</option>
         </select>
         <input
           className="search-bar__input"
@@ -42,7 +40,9 @@ function SearchBar(props) {
           value={query.value}
           onChange={valueHandler}
         ></input>
-        <button className="search-bar__btn">Search</button>
+        <button className="search-bar__btn">
+          <Icon icon="ic:baseline-search" color="rgb(75, 74, 72)" height="24" />
+        </button>
       </form>
     </div>
   );
