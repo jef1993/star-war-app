@@ -231,19 +231,5 @@ html {
   width: 4rem;
   height: 1.5rem;
 }
-.avatar__body {
-  height: 6rem;
-  width: 10rem;
-  display: flex;
-  flex-direction: column;
-}
-.avatar__body * {
-  width: inherit;
-  flex: 1;
-}
-.avatar__body--top {
-  border-top-left-radius: 2.5rem;
-  border-top-right-radius: 2.5rem;
-}
 
 /*# sourceMappingURL=index.css.map */

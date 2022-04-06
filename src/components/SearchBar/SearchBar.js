@@ -33,6 +33,7 @@ function SearchBar(props) {
           value={query.type}
         >
           <option value="people">people</option>
+          <option value="films">films</option>
         </select>
         <input
           className="search-bar__input"

@@ -22,10 +22,6 @@ function ResultsItem(props) {
           hairColor={props.hairColor}
           skinColor={props.skinColor}
         />
-
-        {/* <p className="results__hair-color">{props.hairColor}</p>
-        <p className="results__eye-color">{props.eyeColor}</p>
-        <p className="results__skin-color">{props.skinColor}</p> */}
       </div>
     </li>
   );

@@ -8,6 +8,7 @@ import getData, { getPage } from "./utils";
 
 function App() {
   const [results, setResults] = useState([]);
+  const [searchType, setSearchType] = useState("");
 
   const getDataMethod = (type, searchStr) => {
     let method = getData;
@@ -27,6 +28,7 @@ function App() {
 
   const searchResultHandler = (data) => {
     getDataMethod(data.type, data.value.trim());
+    setSearchType(data.type);
   };
 
   const prevPageHandler = () => {
@@ -72,6 +74,7 @@ function App() {
         searchData={results}
         toPrevPage={prevPageHandler}
         toNextPage={nextPageHandler}
+        searchType={searchType}
       />
     </div>
   );

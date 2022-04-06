@@ -47,28 +47,4 @@
     width: 4rem;
     height: 1.5rem;
   }
-
-  &__body {
-    height: 6rem;
-    width: 10rem;
-
-    display: flex;
-    flex-direction: column;
-
-    & * {
-      width: inherit;
-      flex: 1;
-    }
-
-    &--top {
-      border-top-left-radius: 2.5rem;
-      border-top-right-radius: 2.5rem;
-    }
-
-    &--mid {
-    }
-
-    &--bot {
-    }
-  }
 }

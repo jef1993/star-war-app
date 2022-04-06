@@ -5,7 +5,6 @@ function Results(props) {
 
   const currentPage = () => {
     const page = searchData.next && searchData.next.split("=");
-
     if (searchData.next === null) return Math.ceil(searchData.count / 10);
     if (searchData.previous === null) return 1;
     return page[page.length - 1] - 1;
@@ -47,19 +46,23 @@ function Results(props) {
 
       <ul className="results__list">
         {searchData.results &&
-          searchData.results.map((obj, i) => (
-            <ResultsItem
-              key={i}
-              name={obj.name}
-              height={obj.height}
-              mass={obj.mass}
-              gender={obj.gender}
-              birthYear={obj.birth_year}
-              hairColor={obj.hair_color}
-              eyeColor={obj.eye_color}
-              skinColor={obj.skin_color}
-            />
-          ))}
+          searchData.results.map((obj, i) =>
+            props.searchType === "people" ? (
+              <ResultsItem
+                key={i}
+                name={obj.name}
+                height={obj.height}
+                mass={obj.mass}
+                gender={obj.gender}
+                birthYear={obj.birth_year}
+                hairColor={obj.hair_color}
+                eyeColor={obj.eye_color}
+                skinColor={obj.skin_color}
+              />
+            ) : (
+              <div key={i}>{obj.title}</div>
+            )
+          )}
       </ul>
     </div>
   );

@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import colors from "./colors.scss";
 
 function Avatar(props) {
-  let eyeColors = props.eyeColor.replace(/[- ]/g, "").split(",");
-  let hairColors = props.hairColor.replace(/[- ]/g, "").split(",");
-  let skinColors = props.skinColor.replace(/[- ]/g, "").split(",");
+  let eyeColors =
+    props.eyeColor !== undefined &&
+    props.eyeColor.replace(/[- ]/g, "").split(",");
+  let hairColors =
+    props.eyeColor !== undefined &&
+    props.hairColor.replace(/[- ]/g, "").split(",");
+  let skinColors =
+    props.eyeColor !== undefined &&
+    props.skinColor.replace(/[- ]/g, "").split(",");
 
   if (
     skinColors[0] === "none" ||
@@ -13,8 +19,6 @@ function Avatar(props) {
   ) {
     skinColors = hairColors;
   }
-
-  //   console.log(eyeColors, hairColors, skinColors);
 
   const dynamicStyles = (part, dir = "right") => {
     if (part.length > 1)
