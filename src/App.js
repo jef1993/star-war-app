@@ -4,21 +4,37 @@ import "./App.css";
 import Banner from "./components/Banner/Banner";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Results from "./components/Results/Results";
-import getData from "./utils";
+import getData, { getPage } from "./utils";
 
 function App() {
   const [results, setResults] = useState([]);
 
-  let method = getData;
-  const getMethod = (type, searchStr) => {
+  const getDataMethod = (type, searchStr) => {
+    let method = getData;
     if (typeof method === "function") {
       return getData(setResults, type, searchStr);
     }
     return method;
   };
 
+  const getPageMethod = (url) => {
+    let method = getPage;
+    if (typeof method === "function") {
+      return getPage(setResults, url);
+    }
+    return method;
+  };
+
   const searchResultHandler = (data) => {
-    getMethod(data.type, data.value.trim());
+    getDataMethod(data.type, data.value.trim());
+  };
+
+  const prevPageHandler = () => {
+    getPageMethod(results.previous);
+  };
+
+  const nextPageHandler = () => {
+    getPageMethod(results.next);
   };
 
   // let colors = results
@@ -52,7 +68,11 @@ function App() {
     <div className="App">
       <Banner />
       <SearchBar onQuerySubmit={searchResultHandler} />
-      <Results searchData={results} />
+      <Results
+        searchData={results}
+        toPrevPage={prevPageHandler}
+        toNextPage={nextPageHandler}
+      />
     </div>
   );
 }

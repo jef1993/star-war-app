@@ -1,3 +1,30 @@
+export const getData = async (setter, type, query) => {
+  try {
+    const response = await fetch(
+      `https://swapi.dev/api/${type}/?search=${query}`,
+      {
+        method: "GET",
+      }
+    );
+    const data = await response.json();
+    setter(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getPage = async (setter, page) => {
+  try {
+    const response = await fetch(`${page}`, {
+      method: "GET",
+    });
+    const data = await response.json();
+    setter(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // export const getAllPeople = async (setter, query) => {
 //   try {
 //     let allData = [];
@@ -27,20 +54,5 @@
 //     console.log(error);
 //   }
 // };
-
-export const getData = async (setter, type, query) => {
-  try {
-    const response = await fetch(
-      `https://swapi.dev/api/${type}/?search=${query}`,
-      {
-        method: "GET",
-      }
-    );
-    const data = await response.json();
-    setter(data);
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 export default getData;

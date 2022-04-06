@@ -10,27 +10,32 @@
   }
 
   &__btns {
+    display: flex;
+    justify-content: space-between;
     & button {
       background-color: transparent;
       color: $color-white;
       font-family: $font-main;
       font-size: 1.8rem;
       border: none;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
-  &__prev {
-    margin-right: 2rem;
-  }
-
-  &__next {
+  &__pages {
+    width: 5rem;
+    text-align: center;
   }
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto);
-    gap: 1rem;
+    gap: 2rem 1rem;
+    margin-top: 1rem;
   }
 
   &__item {
@@ -43,7 +48,6 @@
     grid-template-columns: 1fr auto;
     grid-template-rows: repeat(2, auto);
     gap: 1rem;
-    margin-top: 1rem;
   }
 
   &__name {

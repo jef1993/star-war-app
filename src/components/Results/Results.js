@@ -2,9 +2,14 @@ import ResultsItem from "./ResultsItem";
 
 function Results(props) {
   const searchData = props.searchData;
-  const searchResult = searchData.results;
-  console.log(searchData);
-  console.log(searchData.results);
+
+  const currentPage = () => {
+    const page = searchData.next && searchData.next.split("=");
+
+    if (searchData.next === null) return Math.ceil(searchData.count / 10);
+    if (searchData.previous === null) return 1;
+    return page[page.length - 1] - 1;
+  };
 
   return (
     <div className="results">
@@ -16,10 +21,26 @@ function Results(props) {
             }:`}
           </div>
           <div className="results__btns">
-            {searchData.previous && (
-              <button className="results__prev">Prev</button>
-            )}
-            {searchData.next && <button className="results__next">Next</button>}
+            <button
+              className={`results__prev ${
+                searchData.previous === null ? "hidden" : ""
+              }`}
+              onClick={props.toPrevPage}
+            >
+              Prev
+            </button>
+            <div className="results__pages">
+              {currentPage()}/{Math.ceil(searchData.count / 10)}
+            </div>
+
+            <button
+              className={`results__next ${
+                searchData.next === null ? "hidden" : ""
+              }`}
+              onClick={props.toNextPage}
+            >
+              Next
+            </button>
           </div>
         </div>
       )}

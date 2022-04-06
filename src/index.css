@@ -37,6 +37,11 @@ html {
   margin: 2rem auto 2rem auto;
 }
 
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .banner {
   display: flex;
   flex-direction: column;
@@ -96,6 +101,10 @@ html {
 .results__count {
   font-size: 1.8rem;
 }
+.results__btns {
+  display: flex;
+  justify-content: space-between;
+}
 .results__btns button {
   background-color: transparent;
   color: #fff;
@@ -103,14 +112,19 @@ html {
   font-size: 1.8rem;
   border: none;
 }
-.results__prev {
-  margin-right: 2rem;
+.results__btns button:hover {
+  cursor: pointer;
+}
+.results__pages {
+  width: 5rem;
+  text-align: center;
 }
 .results__list {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
-  gap: 1rem;
+  gap: 2rem 1rem;
+  margin-top: 1rem;
 }
 .results__item {
   padding: 1.5rem;
@@ -121,7 +135,6 @@ html {
   grid-template-columns: 1fr auto;
   grid-template-rows: repeat(2, auto);
   gap: 1rem;
-  margin-top: 1rem;
 }
 .results__name {
   grid-area: 1/1/span 1/span 1;
