@@ -52,6 +52,7 @@ function App() {
     <div className="App">
       <Banner />
       <SearchBar onQuerySubmit={searchResultHandler} />
+      <Results searchData={results} />
       {results.results ? (
         results.results.map((obj, i) => <div key={i}>{obj.name}</div>)
       ) : (

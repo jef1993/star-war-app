@@ -1,0 +1,58 @@
+.results {
+  &__ctn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+
+  &__count {
+    font-size: 1.8rem;
+  }
+
+  &__btns {
+    & button {
+      background-color: transparent;
+      color: $color-white;
+      font-family: $font-main;
+      font-size: 1.8rem;
+      border: none;
+    }
+  }
+
+  &__prev {
+    margin-right: 2rem;
+  }
+
+  &__next {
+  }
+
+  &__list {
+    background-color: rgb(19, 65, 65);
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+  }
+
+  &__item {
+    background-color: rgb(34, 39, 37);
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    margin-top: 1rem;
+  }
+
+  &__name {
+    grid-area: 1/1 / span 1/-1;
+  }
+
+  &__info {
+    grid-area: 2/1 / -1 / span 1;
+  }
+
+  &__avatar {
+    grid-area: 2/2 / -1 / -1;
+    background-color: rgb(10, 10, 10);
+    width: 20rem;
+    height: 20rem;
+  }
+}

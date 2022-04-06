@@ -28,10 +28,13 @@ html {
 #root {
   color: #f8f8f8;
   font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
 }
 
 .App {
   width: 80rem;
+  margin: 2rem auto 2rem auto;
 }
 
 .banner {
@@ -83,6 +86,50 @@ html {
 }
 .search-bar__btn:hover {
   cursor: pointer;
+}
+
+.results__ctn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.results__count {
+  font-size: 1.8rem;
+}
+.results__btns button {
+  background-color: transparent;
+  color: #f8f8f8;
+  font-family: "Lexend", sans-serif;
+  font-size: 1.8rem;
+  border: none;
+}
+.results__prev {
+  margin-right: 2rem;
+}
+.results__list {
+  background-color: #134141;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+}
+.results__item {
+  background-color: #222725;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  margin-top: 1rem;
+}
+.results__name {
+  grid-area: 1/1/span 1/-1;
+}
+.results__info {
+  grid-area: 2/1/-1/span 1;
+}
+.results__avatar {
+  grid-area: 2/2/-1/-1;
+  background-color: #0a0a0a;
+  width: 20rem;
+  height: 20rem;
 }
 
 /*# sourceMappingURL=index.css.map */
