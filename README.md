@@ -112,6 +112,6 @@ Another possible solution is, instead of using linear-gradient for multi-color, 
 
 ## Notice
 
-- The Readme commit is the code finished within the time limit, please consider any further commit as post-submittion updates.
+- The Readme commit is the code finished within the time limit, please consider any further commit as post-submission updates.
 - Thank you for reading
 - Hire me , plz.
