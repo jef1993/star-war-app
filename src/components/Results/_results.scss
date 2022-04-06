@@ -27,32 +27,45 @@
   }
 
   &__list {
-    background-color: rgb(19, 65, 65);
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(2, auto);
-  }
-
-  &__item {
-    background-color: rgb(34, 39, 37);
-    height: auto;
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(2, auto);
+    gap: 1rem;
+  }
+
+  &__item {
+    padding: 1.5rem;
+    border: 1.5px solid $color-yellow;
+    border-radius: 1.5rem;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: repeat(2, auto);
+    gap: 1rem;
     margin-top: 1rem;
   }
 
   &__name {
-    grid-area: 1/1 / span 1/-1;
+    grid-area: 1/1 / span 1 / span 1;
+    font-size: 2rem;
+    height: 5rem;
   }
 
   &__info {
     grid-area: 2/1 / -1 / span 1;
+
+    & p {
+      font-weight: 300;
+    }
   }
 
   &__avatar {
-    grid-area: 2/2 / -1 / -1;
+    grid-area: 1/2 / -1 / -1;
     background-color: rgb(10, 10, 10);
-    width: 20rem;
-    height: 20rem;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 1rem;
+    border: 1px solid $color-grey;
   }
 }

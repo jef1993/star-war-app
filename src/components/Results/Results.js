@@ -16,8 +16,10 @@ function Results(props) {
             }:`}
           </div>
           <div className="results__btns">
-            <button className="results__prev">Prev</button>
-            <button className="results__next">Next</button>
+            {searchData.previous && (
+              <button className="results__prev">Prev</button>
+            )}
+            {searchData.next && <button className="results__next">Next</button>}
           </div>
         </div>
       )}
