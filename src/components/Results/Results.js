@@ -1,7 +1,10 @@
+import React, { useContext } from "react";
 import ResultsItem from "./ResultsItem";
+import DataContext from "../storage/dataContext";
 
 function Results(props) {
-  const searchData = props.searchData;
+  const ctx = useContext(DataContext);
+  const searchData = ctx.results;
 
   const currentPage = () => {
     const page = searchData.next && searchData.next.split("=");
@@ -47,7 +50,7 @@ function Results(props) {
       <ul className="results__list">
         {searchData.results &&
           searchData.results.map((obj, i) =>
-            props.searchType === "people" ? (
+            ctx.type === "people" ? (
               <ResultsItem
                 key={i}
                 name={obj.name}

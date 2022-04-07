@@ -1,4 +1,3 @@
-import React from "react";
 import colors from "./colors.scss";
 
 function Avatar(props) {

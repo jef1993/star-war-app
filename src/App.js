@@ -4,6 +4,7 @@ import "./App.css";
 import Banner from "./components/Banner/Banner";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Results from "./components/Results/Results";
+import DataContext from "./components/storage/dataContext";
 import getData, { getPage } from "./utils";
 
 function App() {
@@ -67,16 +68,18 @@ function App() {
   // console.log(bigNum && bigNum.sort((a, b) => a - b));
 
   return (
-    <div className="App">
-      <Banner />
-      <SearchBar onQuerySubmit={searchResultHandler} />
-      <Results
-        searchData={results}
-        toPrevPage={prevPageHandler}
-        toNextPage={nextPageHandler}
-        searchType={searchType}
-      />
-    </div>
+    <DataContext.Provider
+      value={{
+        results: results,
+        type: searchType,
+      }}
+    >
+      <div className="App">
+        <Banner />
+        <SearchBar onQuerySubmit={searchResultHandler} />
+        <Results toPrevPage={prevPageHandler} toNextPage={nextPageHandler} />
+      </div>
+    </DataContext.Provider>
   );
 }
 
