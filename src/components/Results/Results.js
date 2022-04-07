@@ -15,7 +15,7 @@ function Results(props) {
 
   return (
     <div className="results">
-      {searchData.count && (
+      {typeof searchData.count === "number" && (
         <div className="results__ctn">
           <div className="results__count">
             {`Found ${searchData.count} item${
@@ -32,7 +32,8 @@ function Results(props) {
               Prev
             </button>
             <div className="results__pages">
-              {currentPage()}/{Math.ceil(searchData.count / 10)}
+              {searchData.count > 1 &&
+                `${currentPage()}/${Math.ceil(searchData.count / 10)}`}
             </div>
 
             <button
